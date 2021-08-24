@@ -1,0 +1,21 @@
+version: '2'
+services:
+ 
+  #rabbitmq container
+  rabbitmq:
+    #setup host name
+    hostname: rabbit
+    container_name: rabbit
+    #use docker images
+    image: rabbitmq:management
+    #ports setting
+    ports:
+      - 15672:15672
+      - 5672:5672
+    restart: always
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin #username
+      - RABBITMQ_DEFAULT_PASS=admin #password
+    #volumes setting
+    volumes:
+      - ./data:/var/lib/rabbitmq

@@ -1,0 +1,17 @@
+version: "2"
+
+services: 
+  goland:
+    container_name: goland
+    image: registry.jetbrains.team/p/prj/containers/projector-goland:latest
+    restart: always
+    environment: 
+      - GOROOT=/opt/go
+      - GOBIN=/opt/workspace/go/bin
+      - GOPATH=/opt/workspace/go
+    volumes: 
+      - /opt/go/:/opt/go
+      - /home/ubuntu/codework:/opt/codework
+      - /home/ubuntu/workspace:/opt/workspace
+    ports: 
+      - 8887:8887
